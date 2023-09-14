@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/components/components.dart';
-import 'package:flutter_example/login_screens/login_screen.dart';
+import 'package:flutter_example/pages/auth/login.dart';
+import 'package:flutter_example/pages/auth/signup.dart';
 
 class PageWelcome extends StatelessWidget {
   const PageWelcome({super.key});
@@ -41,7 +42,7 @@ class PageWelcome extends StatelessWidget {
                         child: CustomButton(
                           buttonText: 'Login',
                           onPressed: () {
-                            Navigator.pushNamed(context, LoginScreen.id);
+                            Navigator.pushNamed(context, PageLogin.id);
                           },
                         ),
                       ),
@@ -54,6 +55,7 @@ class PageWelcome extends StatelessWidget {
                           buttonText: 'Sign Up',
                           isOutlined: true,
                           onPressed: () {
+                            Navigator.pushNamed(context, PageSignup.id);
                           },
                         ),
                       ),

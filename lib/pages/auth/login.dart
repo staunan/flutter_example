@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:flutter_example/constants.dart';
 import 'package:flutter_example/components/components.dart';
 import 'package:flutter_example/components/CustomTextField.dart';
-import 'package:flutter_example/login_screens/welcome.dart';
-import 'package:flutter_example/login_screens/home_screen.dart';
+import 'package:flutter_example/pages/auth/welcome.dart';
+import 'package:flutter_example/pages/home/home.dart';
 
 class PageLogin extends StatefulWidget {
   const PageLogin({super.key});
@@ -24,7 +23,7 @@ class _PageLoginState extends State<PageLogin> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Navigator.popAndPushNamed(context, HomeScreen.id);
+        Navigator.popAndPushNamed(context, PageWelcome.id);
         return false;
       },
       child: Scaffold(
@@ -100,7 +99,7 @@ class _PageLoginState extends State<PageLogin> {
                                   buttonText: "Log In",
                                   width: 150,
                                   onPressed: () {
-                                    Navigator.pushNamed(context, WelcomeScreen.id);
+                                    Navigator.pushNamed(context, PageHome.id);
                                   },
                                 ),
                               ),

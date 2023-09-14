@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_example/components/components.dart';
-import 'package:flutter_example/screens/home_screen.dart';
-import 'package:flutter_example/screens/login_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_example/components/CustomTextField.dart';
 import 'package:flutter_example/constants.dart';
 import 'package:loading_overlay/loading_overlay.dart';
+import 'package:flutter_example/pages/home/home.dart';
+import 'package:flutter_example/pages/auth/login.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
-  static String id = 'signup_screen';
+class PageSignup extends StatefulWidget {
+  const PageSignup({super.key});
+  static String id = 'page_signup';
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<PageSignup> createState() => _PageSignupState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  final _auth = FirebaseAuth.instance;
+class _PageSignupState extends State<PageSignup> {
   late String _email;
   late String _password;
   late String _confirmPass;
@@ -26,7 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Navigator.popAndPushNamed(context, HomeScreen.id);
+        Navigator.popAndPushNamed(context, PageHome.id);
         return true;
       },
       child: Scaffold(
@@ -39,7 +38,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const TopScreenImage(screenImageName: 'signup.png'),
+                  const TopScreenImage(screenImageName: 'welcome.png'),
                   Expanded(
                     flex: 2,
                     child: Padding(
@@ -97,55 +96,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             heroTag: 'signup_btn',
                             question: 'Have an account?',
                             buttonPressed: () async {
-                              FocusManager.instance.primaryFocus?.unfocus();
-                              setState(() {
-                                _saving = true;
-                              });
-                              if (_confirmPass == _password) {
-                                try {
-                                  await _auth.createUserWithEmailAndPassword(
-                                      email: _email, password: _password);
-
-                                  if (context.mounted) {
-                                    signUpAlert(
-                                      context: context,
-                                      title: 'GOOD JOB',
-                                      desc: 'Go login now',
-                                      btnText: 'Login Now',
-                                      onPressed: () {
-                                        setState(() {
-                                          _saving = false;
-                                          Navigator.popAndPushNamed(
-                                              context, SignUpScreen.id);
-                                        });
-                                        Navigator.pushNamed(
-                                            context, LoginScreen.id);
-                                      },
-                                    ).show();
-                                  }
-                                } catch (e) {
-                                  signUpAlert(
-                                      context: context,
-                                      onPressed: () {
-                                        SystemNavigator.pop();
-                                      },
-                                      title: 'SOMETHING WRONG',
-                                      desc: 'Close the app and try again',
-                                      btnText: 'Close Now');
-                                }
-                              } else {
-                                showAlert(
-                                    context: context,
-                                    title: 'WRONG PASSWORD',
-                                    desc:
-                                        'Make sure that you write the same password twice',
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    }).show();
-                              }
+                              Navigator.pushNamed(context, PageHome.id);
                             },
                             questionPressed: () async {
-                              Navigator.pushNamed(context, LoginScreen.id);
+                              Navigator.pushNamed(context, PageLogin.id);
                             },
                           ),
                         ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 import 'package:flutter_example/pages/auth/welcome.dart';
 import 'package:flutter_example/pages/auth/login.dart';
+import 'package:flutter_example/pages/auth/signup.dart';
 import 'package:flutter_example/pages/home/home.dart';
 
 void main() async {
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       routes: {
         PageWelcome.id: (context) => PageWelcome(),
         PageLogin.id: (context) => PageLogin(),
+        PageSignup.id: (context) => PageSignup(),
         PageHome.id: (context) => PageHome()
       },
     );
