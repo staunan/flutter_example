@@ -9,6 +9,15 @@ adb connect 192.168.0.101
 adb devices
 
 # Run the App
+```bash
 cd /
 cd C:\repos\staunan\flutter_example
 flutter run
+```
+
+# Run on Desktop
+```bash
+cd /
+cd C:\repos\staunan\flutter_example
+flutter run -d windows
+```
