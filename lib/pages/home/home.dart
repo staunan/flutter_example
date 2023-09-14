@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_example/components/components.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
-  static String id = 'welcome_screen';
+class PageHome extends StatelessWidget {
+  const PageHome({super.key});
+  static String id = 'page_home';
 
   @override
   Widget build(BuildContext context) {

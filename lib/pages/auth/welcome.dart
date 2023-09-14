@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_example/components/components.dart';
 import 'package:flutter_example/login_screens/login_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-  static String id = 'home_screen';
+class PageWelcome extends StatelessWidget {
+  const PageWelcome({super.key});
+  static String id = 'page_welcome';
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,6 @@ class HomeScreen extends StatelessWidget {
                           buttonText: 'Login',
                           onPressed: () {
                             Navigator.pushNamed(context, LoginScreen.id);
-                            // Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen()));
                           },
                         ),
                       ),

@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
-import 'package:flutter_example/login_screens/home_screen.dart';
-import 'package:flutter_example/login_screens/login_screen.dart';
+import 'package:flutter_example/pages/auth/welcome.dart';
+import 'package:flutter_example/pages/auth/login.dart';
+import 'package:flutter_example/pages/home/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,10 +30,11 @@ class MyApp extends StatelessWidget {
           ),
         )
       ),
-      initialRoute: HomeScreen.id,
+      initialRoute: PageWelcome.id,
       routes: {
-        HomeScreen.id: (context) => HomeScreen(),
-        LoginScreen.id: (context) => LoginScreen()
+        PageWelcome.id: (context) => PageWelcome(),
+        PageLogin.id: (context) => PageLogin(),
+        PageHome.id: (context) => PageHome()
       },
     );
   }

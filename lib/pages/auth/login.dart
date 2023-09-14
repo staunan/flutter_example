@@ -7,15 +7,15 @@ import 'package:flutter_example/components/CustomTextField.dart';
 import 'package:flutter_example/login_screens/welcome.dart';
 import 'package:flutter_example/login_screens/home_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-  static String id = 'login_screen';
+class PageLogin extends StatefulWidget {
+  const PageLogin({super.key});
+  static String id = 'page_login';
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<PageLogin> createState() => _PageLoginState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _PageLoginState extends State<PageLogin> {
   late String _email;
   late String _password;
   bool _saving = false;
@@ -88,19 +88,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                       context: context,
                                     ).show();
                                   },
-                                  child: Text(question),
+                                  child: Text("Forgot Password?"),
                                 ),
                               ),
                             ),
                             Align(
                               alignment: Alignment.centerRight,
                               child: Hero(
-                                tag: heroTag,
+                                tag: 'login_btn',
                                 child: CustomButton(
-                                  buttonText: textButton,
+                                  buttonText: "Log In",
                                   width: 150,
                                   onPressed: () {
-                                    buttonPressed();
+                                    Navigator.pushNamed(context, WelcomeScreen.id);
                                   },
                                 ),
                               ),
