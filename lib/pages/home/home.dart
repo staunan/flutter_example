@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:flutter_example/components/components.dart';
 import 'package:flutter_example/components/cards/DaisyCard.dart';
+import 'package:flutter_example/pages/buttons/buttons.dart';
 
 class PageHome extends StatefulWidget {
   const PageHome({super.key});
@@ -32,7 +33,14 @@ class _PageHomeState extends State<PageHome> {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  DaisyCard()
+                  DaisyCard(
+                    image_name: "welcome.png", 
+                    title: "Buttons", 
+                    description: "This is a demo description will be placed here...",
+                    onTap: () async {
+                      Navigator.pushNamed(context, PageButtons.id);
+                    }
+                  )
                 ],
               ),
             ),

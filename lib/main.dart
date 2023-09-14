@@ -5,6 +5,7 @@ import 'package:flutter_example/pages/auth/welcome.dart';
 import 'package:flutter_example/pages/auth/login.dart';
 import 'package:flutter_example/pages/auth/signup.dart';
 import 'package:flutter_example/pages/home/home.dart';
+import 'package:flutter_example/pages/buttons/buttons.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
         PageWelcome.id: (context) => PageWelcome(),
         PageLogin.id: (context) => PageLogin(),
         PageSignup.id: (context) => PageSignup(),
-        PageHome.id: (context) => PageHome()
+        PageHome.id: (context) => PageHome(),
+        PageButtons.id: (context) => PageButtons()
       },
     );
   }
