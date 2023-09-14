@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 import 'package:flutter_example/components/components.dart';
+import 'package:flutter_example/components/buttons/NiceButtons.dart';
 
 class PageButtons extends StatelessWidget {
   const PageButtons({super.key});
@@ -13,94 +15,85 @@ class PageButtons extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(25),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const TopScreenImage(screenImageName: 'home.jpg'),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 15.0, left: 15, bottom: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const ScreenTitle(title: 'Hello'),
-                      const Text(
-                        'Welcome to Tasky, where you manage your daily tasks',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 20,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Hero(
-                        tag: 'login_btn',
-                        child: CustomButton(
-                          buttonText: 'Login',
-                          onPressed: () {
-                            
-                          },
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Hero(
-                        tag: 'signup_btn',
-                        child: CustomButton(
-                          buttonText: 'Sign Up',
-                          isOutlined: true,
-                          onPressed: () {
-                            
-                          },
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      const Text(
-                        'Sign up using',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: CircleAvatar(
-                              radius: 25,
-                              child: Image.asset(
-                                  'assets/images/icons/facebook.png'),
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: CircleAvatar(
-                              radius: 25,
-                              backgroundColor: Colors.transparent,
-                              child:
-                                  Image.asset('assets/images/icons/google.png'),
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: CircleAvatar(
-                              radius: 25,
-                              child: Image.asset(
-                                  'assets/images/icons/linkedin.png'),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+                NiceButtons(
+                    stretch: false,
+                    gradientOrientation: GradientOrientation.Horizontal,
+                    onTap: (finish) {
+                        print('On tap called');
+                    },
+                    child: Text(
+                        'Normal Button',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
                 ),
-              )
+                SizedBox(height: 10),
+                NiceButtons(
+                    stretch: true,
+                    gradientOrientation: GradientOrientation.Horizontal,
+                    onTap: (finish) {
+                        print('On tap called');
+                    },
+                    child: Text(
+                        'Nice Buttons - Full Width',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                ),
+                SizedBox(height: 10),
+                NiceButtons(
+                    stretch: false,
+                    progress: true,
+                    gradientOrientation: GradientOrientation.Horizontal,
+                    onTap: (finish) {
+                        print('On tap called');
+                        Timer(Duration(seconds: 5), () {
+                            finish();
+                        });
+                    },
+                    child: Text(
+                        'With Progress',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                ),
+                SizedBox(height: 10),
+                NiceButtons(
+                    stretch: false,
+                    borderRadius: 30,
+                    gradientOrientation: GradientOrientation.Horizontal,
+                    onTap: (finish) {
+                        print('On tap called');
+                    },
+                    child: Text(
+                        '3D Pill',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                ),
+                SizedBox(height: 10),
+                NiceButtons(
+                    stretch: false,
+                    gradientOrientation: GradientOrientation.Vertical,
+                    onTap: (finish) {
+                        print('On tap called');
+                    },
+                    child: Text(
+                        'Vertical Gradient',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                ),
+                SizedBox(height: 10),
+                NiceButtons(
+                    stretch: false,
+                    gradientOrientation: GradientOrientation.Vertical,
+                    width: 300,
+                    onTap: (finish) {
+                        print('On tap called');
+                    },
+                    child: Text(
+                        'Fixed Width',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                ),
             ],
           ),
         ),
